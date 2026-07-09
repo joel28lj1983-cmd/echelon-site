@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>CMMC Level 1 Self-Check | Echelon Advisory Group</title>
-  <meta name="description" content="A free, private CMMC Level 1 self-check. Answer 17 plain-language questions and get an instant readiness summary. Nothing you enter leaves your browser.">
+  <meta name="description" content="A free, private CMMC Level 1 self-check. Answer 15 plain-language questions and get an instant readiness summary. Nothing you enter leaves your browser.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Echelon Advisory Group">
   <meta property="og:title" content="CMMC Level 1 Self-Check | Echelon Advisory Group">
@@ -83,7 +83,7 @@
     .q { padding: 16px 0; border-bottom: 1px solid var(--border); }
     .q:last-child { border-bottom: none; }
     .q .qid { font-size: 0.74rem; font-weight: 700; letter-spacing: 0.04em;
-      color: var(--accent); text-transform: uppercase; }
+      color: var(--accent); }
     .q .qtext { margin: 4px 0 0; font-weight: 600; }
     .q .qhint { margin: 4px 0 0; font-size: 0.9rem; color: var(--muted); }
     fieldset { border: 0; margin: 0; padding: 0; min-width: 0; }
@@ -126,7 +126,7 @@
     .gaplist li { padding: 12px 0; border-bottom: 1px solid var(--border); }
     .gaplist li:last-child { border-bottom: none; }
     .gaplist .gid { font-size: 0.74rem; font-weight: 700; color: var(--muted);
-      text-transform: uppercase; letter-spacing: 0.04em; }
+      letter-spacing: 0.04em; }
     .pill { display: inline-block; font-size: 0.72rem; font-weight: 700;
       padding: 2px 9px; border-radius: 999px; margin-left: 6px; }
     .pill-partial { background: #fdf3e0; color: #8a5a00; }
@@ -186,8 +186,8 @@
       <div class="container">
         <p class="eyebrow">Free Self-Check</p>
         <h1>CMMC Level 1 Self-Check</h1>
-        <p>CMMC Level 1 covers 17 basic safeguarding practices that apply to
-          companies handling Federal Contract Information. Answer the 17 plain
+        <p>CMMC Level 1 covers 15 basic safeguarding practices that apply to
+          companies handling Federal Contract Information. Answer the 15 plain
           questions below to see where you stand and which items need work.</p>
         <p class="privacy">This check runs entirely in your browser. Nothing you
           answer is saved, stored, or sent anywhere.</p>
@@ -242,7 +242,7 @@
           <strong>About this result.</strong> This self-check is an informal
           educational estimate based only on the answers you selected. It is not a
           CMMC assessment, not an official score, and not a substitute for your
-          SPRS self-assessment. For Level 1, all 17 practices must be met to attest
+          SPRS self-assessment. For Level 1, all 15 practices must be met to attest
           compliance; there is no partial credit and no plan-of-action allowance at
           this level. Echelon Advisory Group provides readiness advisory services
           and does not perform certification assessments or guarantee any outcome.
@@ -275,60 +275,54 @@
     };
 
     var PRACTICES = [
-      { id: "AC.L1-3.1.1", d: "AC",
+      { id: "AC.L1-b.1.i", d: "AC",
         q: "Is access to your systems limited to the people and devices you have actually approved?",
         h: "Everybody signs in as themselves.  When someone leaves, their access gets shut off that day." },
-      { id: "AC.L1-3.1.2", d: "AC",
+      { id: "AC.L1-b.1.ii", d: "AC",
         q: "Once someone is logged in, are they held to just the tasks their job calls for?",
         h: "The front desk does not need administrator rights.  Most people never need to be in the payroll folder either." },
-      { id: "AC.L1-3.1.20", d: "AC",
+      { id: "AC.L1-b.1.iii", d: "AC",
         q: "Do you have a handle on how outside systems and services connect to yours?",
         h: "This is the home laptop, or the cloud tool somebody signed up for on their own without telling anyone." },
-      { id: "AC.L1-3.1.22", d: "AC",
+      { id: "AC.L1-b.1.iv", d: "AC",
         q: "Do you keep an eye on what ends up on your public-facing systems, so Federal Contract Information does not slip out?",
         h: "The usual culprits are the company website and a shared drive that got flipped to public by accident." },
 
-      { id: "IA.L1-3.5.1", d: "IA",
+      { id: "IA.L1-b.1.v", d: "IA",
         q: "Does each person sign in as themselves instead of sharing one login?",
         h: "When five people share one login, you cannot tell who did what." },
-      { id: "IA.L1-3.5.2", d: "IA",
+      { id: "IA.L1-b.1.vi", d: "IA",
         q: "Does everyone have to prove who they are, with a password at least, before they get in?",
         h: "No open accounts that anyone can just walk into." },
 
-      { id: "MP.L1-3.8.3", d: "MP",
+      { id: "MP.L1-b.1.vii", d: "MP",
         q: "Before an old computer or drive leaves the building, is it wiped or destroyed so nothing can be pulled off it later?",
         h: "Dragging files to the trash or a quick reformat does not really erase them.  Shred the old paperwork too." },
 
-      { id: "PE.L1-3.10.1", d: "PE",
+      { id: "PE.L1-b.1.viii", d: "PE",
         q: "Is physical access to your work areas and equipment limited to people who belong there?",
         h: "Doors lock.  The server is not sitting somewhere the public can walk right up to it." },
-      { id: "PE.L1-3.10.3", d: "PE",
-        q: "When a visitor is in a work area, is someone with them and paying attention?",
-        h: "Nobody gets left alone next to the servers or an unlocked computer." },
-      { id: "PE.L1-3.10.4", d: "PE",
-        q: "Do you keep any record of who comes into the building?",
-        h: "A sign-in sheet counts.  So do the door reader logs, if you have a reader." },
-      { id: "PE.L1-3.10.5", d: "PE",
-        q: "Do you know who holds the keys and access cards, and can you cut one off when it goes missing?",
-        h: "When someone leaves, you get the keys back or you change the locks and codes." },
+      { id: "PE.L1-b.1.ix", d: "PE",
+        q: "Do you escort visitors, keep a record of who came into the building, and stay on top of who holds keys and access cards?",
+        h: "Nobody gets left alone next to the servers or an unlocked computer.  A sign-in sheet counts as your log, and the door reader logs count too.  When someone leaves, you get the keys back or you change the locks and codes." },
 
-      { id: "SC.L1-3.13.1", d: "SC",
+      { id: "SC.L1-b.1.x", d: "SC",
         q: "Is there a firewall watching what comes into and goes out of your network?",
         h: "A real business firewall, or at least the one built into your router actually turned on and set up." },
-      { id: "SC.L1-3.13.5", d: "SC",
+      { id: "SC.L1-b.1.xi", d: "SC",
         q: "Is your public-facing gear kept off the same network where the real work happens?",
         h: "Guest Wi-Fi should not drop a visitor onto the same network as your files." },
 
-      { id: "SI.L1-3.14.1", d: "SI",
+      { id: "SI.L1-b.1.xii", d: "SI",
         q: "Do security updates actually get installed, and not months after they come out?",
         h: "Windows and your everyday programs are not sitting way behind on patches." },
-      { id: "SI.L1-3.14.2", d: "SI",
+      { id: "SI.L1-b.1.xiii", d: "SI",
         q: "Is antivirus or anti-malware running on the computers and servers?",
         h: "The protection is turned on and current, not a trial that expired two years ago." },
-      { id: "SI.L1-3.14.4", d: "SI",
+      { id: "SI.L1-b.1.xiv", d: "SI",
         q: "Does the antivirus update itself instead of waiting on a person to do it?",
         h: "New definitions come down on their own, so nobody has to remember to click update." },
-      { id: "SI.L1-3.14.5", d: "SI",
+      { id: "SI.L1-b.1.xv", d: "SI",
         q: "Does it scan on a schedule, and check files from outside as they land?",
         h: "It runs a full scan on a schedule, and it checks downloads and email attachments the moment they open." }
     ];
@@ -389,7 +383,7 @@
       var answered = met + partial + no;
       if (answered < PRACTICES.length) {
         var remaining = PRACTICES.length - answered;
-        msg.textContent = "Please answer all 17 questions. " + remaining +
+        msg.textContent = "Please answer all " + PRACTICES.length + " questions. " + remaining +
           (remaining === 1 ? " is" : " are") + " still unanswered.";
         var el = document.getElementById("q" + firstUnanswered);
         if (el) { el.scrollIntoView({ behavior: "smooth", block: "center" }); }
@@ -412,13 +406,13 @@
       var interpret = document.getElementById("interpret");
       if (gaps.length === 0) {
         interpret.innerHTML = '<p style="margin-top:20px">Going by your answers, ' +
-          'you are meeting all 17 of the Level 1 practices.  That is a good place to ' +
+          'you are meeting all ' + total + ' of the Level 1 practices.  That is a good place to ' +
           'be.  The work now is proving it with real evidence and writing it down, ' +
           'because the SPRS self-assessment is an attestation, and it has to hold up ' +
           'if anyone ever looks.</p>';
       } else {
         interpret.innerHTML = '<p style="margin-top:20px">You marked <strong>' +
-          gaps.length + '</strong> of the 17 practices as partial or not yet in ' +
+          gaps.length + '</strong> of the ' + total + ' practices as partial or not yet in ' +
           'place.  Level 1 has no partial credit.  Every practice has to be met ' +
           'before you can sign the SPRS attestation and mean it.  The list below is ' +
           'where to start.  For a small shop this is a normal place to begin, and most ' +
