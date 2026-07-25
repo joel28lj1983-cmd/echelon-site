@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Echelon Advisory Group LLC | Custom internal software</title>
-  <meta name="description" content="Echelon Advisory Group LLC builds custom internal software for small and mid-sized businesses: internal tools, data migrations, reporting dashboards, and workflow automation. Fixed scope, fixed price, two week delivery.">
+  <meta name="description" content="Echelon Advisory Group LLC builds internal tools, data migrations, reporting dashboards, and workflow automation for small and mid-sized businesses.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Echelon Advisory Group">
   <meta property="og:title" content="Echelon Advisory Group LLC | Custom internal software">
@@ -15,7 +15,205 @@
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="style.css">
+  <style>
+  /* Echelon Advisory Group - site styles.
+     Plain CSS, inlined. System fonts only, no external requests. */
+
+  :root {
+    --bg:     #FAF8F5;  /* warm off-white                      */
+    --ink:    #1A1A1A;  /* body text, 16.4:1 on --bg           */
+    --accent: #1A3E5C;  /* deep navy, used sparingly, 10.5:1   */
+    --rule:   #8C857C;  /* hairline, 3.4:1 on --bg             */
+    --serif:  "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+    --sans:   -apple-system, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --measure: 66ch;
+    --gap:    clamp(56px, 9vw, 112px);
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    text-align: left;
+    padding: 0 24px;
+  }
+  @media (min-width: 700px) { body { font-size: 18px; } }
+  @media (max-width: 420px) { body { padding: 0 20px; } }
+
+  p, li { max-width: var(--measure); }
+  p { margin: 0 0 1.05em; }
+
+  a { color: var(--accent); }
+  a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+  /* Every hairline is drawn on .container, so all rules align with the
+     text column at any width instead of running full bleed. */
+  .container {
+    max-width: 46rem;
+    margin: 0 auto;
+  }
+
+  /* Type scale: hero 32-60, heads 22-30, sub-heads 19-22, body 17-18,
+     labels 12. Nothing sits flat in the middle. */
+  h1 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(32px, 7vw, 60px);
+    line-height: 1.08;
+    letter-spacing: -0.015em;
+    margin: 0 0 26px;
+    max-width: 17ch;
+  }
+  h2 {
+    font-family: var(--serif);
+    font-weight: 400;
+    font-size: clamp(22px, 3.5vw, 30px);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin: 0 0 18px;
+  }
+  h3 {
+    font-family: var(--serif);
+    font-weight: 700;
+    font-size: clamp(19px, 2.1vw, 22px);
+    line-height: 1.3;
+    margin: 0 0 10px;
+  }
+
+  .label {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+
+  /* Skip link */
+  .skip {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--accent);
+    color: var(--bg);
+    padding: 10px 16px;
+    z-index: 10;
+  }
+  .skip:focus { left: 12px; top: 12px; }
+
+  /* Header */
+  .site-header .container {
+    border-bottom: 1px solid var(--rule);
+    padding-top: 22px;
+    padding-bottom: 22px;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    font-family: var(--serif);
+    font-size: 19px;
+    line-height: 1.25;
+  }
+  .brand svg { display: block; flex: none; }
+  .brand-sub {
+    display: block;
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 4px;
+  }
+
+  /* Hero */
+  .hero {
+    padding-top: clamp(48px, 8vw, 96px);
+    padding-bottom: var(--gap);
+  }
+  .hero-note { margin-top: 26px; }
+
+  /* Sections */
+  .section { padding-bottom: var(--gap); }
+  .section > .container {
+    border-top: 1px solid var(--rule);
+    padding-top: var(--gap);
+  }
+  .section-head { margin-bottom: clamp(32px, 4vw, 48px); }
+  .section-head p:last-child { margin-bottom: 0; }
+
+  /* Ruled list - replaces the card grid */
+  .entries { list-style: none; margin: 0; padding: 0; max-width: none; }
+  .entry {
+    max-width: none;
+    border-top: 1px solid var(--rule);
+    padding-top: clamp(28px, 3.5vw, 40px);
+    margin-top: clamp(28px, 3.5vw, 40px);
+  }
+  .entry:first-child { border-top: 0; padding-top: 0; margin-top: 0; }
+  .entry p:last-child { margin-bottom: 0; }
+
+  /* Spaced list - engagement terms, no bullets, no boxes */
+  .terms { list-style: none; margin: 0 0 34px; padding: 0; max-width: none; }
+  .terms li { margin-bottom: 20px; }
+  .terms li:last-child { margin-bottom: 0; }
+
+  /* Aside - hairline on the left, not a box */
+  .aside {
+    border-left: 1px solid var(--rule);
+    padding-left: 22px;
+    margin: 0 0 clamp(36px, 4.5vw, 56px);
+  }
+
+  .stage { margin-top: clamp(28px, 3.5vw, 36px); }
+  .stage p:last-child { margin-bottom: 0; }
+
+  /* Contact */
+  .contact-email {
+    font-family: var(--serif);
+    font-size: clamp(20px, 2.6vw, 26px);
+    line-height: 1.3;
+    margin: 0 0 28px;
+  }
+
+  /* Footer */
+  .site-footer {
+    padding-bottom: 56px;
+    font-size: 15px;
+  }
+  .site-footer > .container {
+    border-top: 1px solid var(--rule);
+    padding-top: clamp(40px, 5vw, 56px);
+  }
+  .site-footer h4 {
+    font-family: var(--sans);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin: 0 0 10px;
+  }
+  .site-footer ul { list-style: none; margin: 0; padding: 0; }
+  .footer-block { margin-bottom: 30px; }
+  .disclaimer {
+    border-top: 1px solid var(--rule);
+    padding-top: 22px;
+    margin: 0;
+    font-size: 14px;
+  }
+  </style>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -23,10 +221,10 @@
   <header class="site-header">
     <div class="container">
       <a class="brand" href="index.html" aria-label="Echelon Advisory Group home">
-        <svg width="30" height="30" viewBox="0 0 32 32" aria-hidden="true">
-          <rect x="6" y="20" width="20" height="3.4" rx="1" fill="#0f2c4c"></rect>
-          <rect x="9" y="14.3" width="17" height="3.4" rx="1" fill="#2b6cb0"></rect>
-          <rect x="12" y="8.6" width="14" height="3.4" rx="1" fill="#9db8d6"></rect>
+        <svg width="26" height="26" viewBox="0 0 32 32" aria-hidden="true">
+          <rect x="6" y="20" width="20" height="3.4" rx="1" fill="#1A3E5C"></rect>
+          <rect x="9" y="14.3" width="17" height="3.4" rx="1" fill="#1A3E5C"></rect>
+          <rect x="12" y="8.6" width="14" height="3.4" rx="1" fill="#1A3E5C"></rect>
         </svg>
         <span>Echelon Advisory Group
           <span class="brand-sub">Custom internal software</span>
@@ -40,7 +238,7 @@
     <!-- 1. Entity and one sentence on what it builds -->
     <section class="hero">
       <div class="container">
-        <p class="eyebrow">Echelon Advisory Group LLC</p>
+        <p class="label">Echelon Advisory Group LLC</p>
         <h1>Custom internal software, built and handed over.</h1>
         <p>I build the internal software small and mid-sized businesses run on:
           internal tools, data migrations, reporting dashboards, and workflow
@@ -60,70 +258,68 @@
             fit one of them, say so plainly and I will tell you whether it is
             something I should take.</p>
         </div>
-        <div class="grid">
-          <div class="card">
-            <span class="tag">Tools</span>
+        <ul class="entries">
+          <li class="entry">
+            <span class="label">Tools</span>
             <h3>Custom internal tools</h3>
             <p>The application a business runs on once a spreadsheet has outgrown
               itself and off-the-shelf software does not fit the way the work
               actually gets done.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Migrations</span>
+          </li>
+          <li class="entry">
+            <span class="label">Migrations</span>
             <h3>Data migrations</h3>
             <p>Moving records out of an aging or abandoned system into a current
               one, with the history intact rather than left behind in the old
               database.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Reporting</span>
+          </li>
+          <li class="entry">
+            <span class="label">Reporting</span>
             <h3>Reporting dashboards</h3>
             <p>One screen that answers the questions an owner or a manager asks
               every week, built from the data the business already holds.</p>
-          </div>
-          <div class="card">
-            <span class="tag">Automation</span>
+          </li>
+          <li class="entry">
+            <span class="label">Automation</span>
             <h3>Workflow automation</h3>
             <p>Removing a manual, repeated step that somebody is presently doing
               by hand, and doing it without disrupting the process around it.</p>
-          </div>
-        </div>
+          </li>
+        </ul>
       </div>
     </section>
 
     <!-- 3. How an engagement works -->
-    <section class="section section-alt">
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <h2>How an engagement works</h2>
           <p class="lead">The terms are set before any work starts, so there is
             nothing to renegotiate once it is underway.</p>
         </div>
-        <div class="cols cols-2">
-          <div>
-            <ul class="checklist">
-              <li><strong>Fixed scope, in writing.</strong>  What is being built,
-                and what is not, agreed before the work begins.</li>
-              <li><strong>Fixed price.</strong>  Quoted against that scope.  It
-                does not move because the work took longer than I judged.</li>
-              <li><strong>Two week delivery.</strong>  From an agreed scope to
-                working software in your hands.</li>
-              <li><strong>Correction at no cost</strong> until the work meets the
-                acceptance criteria agreed at the start.</li>
-            </ul>
-            <p class="note" style="margin-top:22px">No retainer, no hourly
-              billing, and no ongoing access to your systems after handoff.  When
-              it is delivered and accepted, the engagement is finished.</p>
-          </div>
-          <div>
-            <h3>Week one</h3>
-            <p>Scope confirmed in detail, then built.  You get a working version
-              you can open and use, not a status report.</p>
-            <h3>Week two</h3>
-            <p>You use it against the acceptance criteria and tell me where it is
-              wrong.  I correct it, then hand over the software and what you need
-              to keep running it.</p>
-          </div>
+        <ul class="terms">
+          <li><strong>Fixed scope, in writing.</strong>  What is being built,
+            and what is not, agreed before the work begins.</li>
+          <li><strong>Fixed price.</strong>  Quoted against that scope.  It
+            does not move because the work took longer than I judged.</li>
+          <li><strong>Two week delivery.</strong>  From an agreed scope to
+            working software in your hands.</li>
+          <li><strong>Correction at no cost</strong> until the work meets the
+            acceptance criteria agreed at the start.</li>
+        </ul>
+        <p class="aside">No retainer, no hourly
+          billing, and no ongoing access to your systems after handoff.  When
+          it is delivered and accepted, the engagement is finished.</p>
+        <div class="stage">
+          <h3>Week one</h3>
+          <p>Scope confirmed in detail, then built.  You get a working version
+            you can open and use, not a status report.</p>
+        </div>
+        <div class="stage">
+          <h3>Week two</h3>
+          <p>You use it against the acceptance criteria and tell me where it is
+            wrong.  I correct it, then hand over the software and what you need
+            to keep running it.</p>
         </div>
       </div>
     </section>
@@ -134,20 +330,18 @@
         <div class="section-head">
           <h2>Who this is for</h2>
         </div>
-        <div style="max-width:64ch">
-          <p>This is for a business that needs one specific piece of internal
-            software built properly and handed over, rather than an open-ended
-            engagement or a service to subscribe to.</p>
-          <p>It is equally for agencies, managed service providers, and
-            accounting or advisory firms that need a build arm behind their own
-            brand, where the work ships under their name and I stay in the
-            background.</p>
-        </div>
+        <p>This is for a business that needs one specific piece of internal
+          software built properly and handed over, rather than an open-ended
+          engagement or a service to subscribe to.</p>
+        <p>It is equally for agencies, managed service providers, and
+          accounting or advisory firms that need a build arm behind their own
+          brand, where the work ships under their name and I stay in the
+          background.</p>
       </div>
     </section>
 
     <!-- 5. Contact -->
-    <section class="section section-alt">
+    <section class="section">
       <div class="container">
         <div class="section-head">
           <h2>Contact</h2>
@@ -167,18 +361,16 @@
 
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h4>Echelon Advisory Group LLC</h4>
-          <p>Custom internal software for small and mid-sized businesses.
-            Gulf Breeze, Florida.</p>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <ul>
-            <li><a href="mailto:joel@echelonadvisorygroup.org">joel@echelonadvisorygroup.org</a></li>
-          </ul>
-        </div>
+      <div class="footer-block">
+        <h4>Echelon Advisory Group LLC</h4>
+        <p>Custom internal software for small and mid-sized businesses.
+          Gulf Breeze, Florida.</p>
+      </div>
+      <div class="footer-block">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="mailto:joel@echelonadvisorygroup.org">joel@echelonadvisorygroup.org</a></li>
+        </ul>
       </div>
       <p class="disclaimer">Echelon Advisory Group LLC is a Florida limited
         liability company.  Work is delivered under a written scope agreed before
