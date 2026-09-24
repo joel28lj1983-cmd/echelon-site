@@ -1,2 +1,5 @@
-Thumbs.db
 .DS_Store
+.qa-deps/
+.qa-output/
+__pycache__/
+Thumbs.db

@@ -1,4 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://echelonadvisorygroup.org/sitemap.xml
